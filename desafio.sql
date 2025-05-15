@@ -3,18 +3,6 @@ use company;
 CREATE INDEX idx_full_name ON employee(Fname,Lname);
 CREATE INDEX idx_name_project ON project(Pname);
 
-SELECT 
-    TABLE_NAME, 
-    COLUMN_NAME, 
-    CONSTRAINT_NAME, 
-    REFERENCED_TABLE_NAME, 
-    REFERENCED_COLUMN_NAME
-FROM 
-    information_schema.KEY_COLUMN_USAGE
-WHERE 
-    TABLE_SCHEMA = 'company'
-    AND REFERENCED_TABLE_NAME IS NOT NULL;
-
 -- Qual departamento com o maior número de pessoas?
 SELECT COUNT(e.Ssn) qntd_pessoas, d.Dnumber
 FROM departament d
